@@ -1,0 +1,65 @@
+{
+  "lib/*.rb": {
+    "type":      "src",
+    "alternate": "spec/{}_spec.rb",
+    "template": [
+      "# lib/{}.rb",
+      "defmodule XXX do",
+      "end"
+    ]
+  },
+  "spec/*_spec.rb": {
+    "type":      "spec",
+    "alternate": "lib/{}.rb",
+    "template": [
+      "# spec/{}_spec.rb",
+      "defmodule XXX do", 
+      "end"
+    ]
+  },
+  "*_controller.rb": {
+    "type": "controller",
+    "related": [
+      "{dirname|dirname}/views/{basename}_view.rb"
+    ],
+    "template": [
+      "# {basename}_controller.rb",
+      "defmodule XXX do",
+      "end"
+    ]
+  },
+  "*_live.rb": {
+    "type": "live",
+    "related": [
+      "{dirname|dirname}/views/{basename}_view.rb"
+    ],
+    "template": [
+      "# {basename}_live.rb",
+      "defmodule XXX do",
+      "end"
+    ]
+  },
+  "*_view.rb": {
+    "type": "view",
+    "related": [
+      "{dirname|dirname}/controllers/{basename}_controller.rb",
+      "{dirname|dirname}/live/{basename}_live.rb"
+    ],
+    "template": [
+      "# {basename}_view.rb",
+      "defmodule XXX do",
+      "end"
+    ]
+  },
+  "*erb": {
+    "type": "template",
+    "related": [
+      "{dirname|dirname|dirname}/controllers/{dirname|basename}_controller.rb",
+      "{dirname|dirname|dirname}/live/{dirname|basename}_live.rb",
+      "{dirname|dirname|dirname}/views/{dirname|basename}_view.rb"
+    ],
+    "template": [
+      "<%# {basename} erb template %>"
+    ]
+  }
+}
