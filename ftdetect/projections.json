@@ -4,7 +4,7 @@
     "alternate": "spec/{}_spec.rb",
     "template": [
       "# lib/{}.rb",
-      "defmodule XXX do",
+      "class XXX do",
       "end"
     ]
   },
@@ -13,7 +13,7 @@
     "alternate": "lib/{}.rb",
     "template": [
       "# spec/{}_spec.rb",
-      "defmodule XXX do", 
+      "describe XXX do", 
       "end"
     ]
   },
